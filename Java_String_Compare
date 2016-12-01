@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+
+/*
+ * 
+ * Given a string, find out the lexicographically smallest and largest substring of length .
+
+[Note: Lexicographic order is also known as alphabetic order dictionary order. So "ball" 
+is smaller than "cat", "dog" is smaller than "dorm". Capital letter always comes before smaller 
+letter, so "Happy" is smaller than "happy" and "Zoo" is smaller than "ball".]
+
+Input Format
+
+First line will consist a string containing english alphabets which has at most  characters. 2nd 
+line will consist an integer .
+
+Output Format
+
+In the first line print the lexicographically minimum substring. In the second line print the 
+lexicographically maximum substring.
+
+Sample Input
+
+welcometojava
+3
+Sample Output
+ava
+wel
+Explanation
+
+Here is the list of all substrings of length :
+
+wel
+elc
+lco
+com
+ome
+met
+eto
+toj
+oja
+jav
+ava
+Among them ava is the smallest and wel is the largest.
+ * 
+ * 
+ */
+
+
+public class Java_String_Compare {
+	
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		String line = scanner.next();
+		int k = scanner.nextInt();
+		scanner.close();
+		String max,min;
+		max = line.substring(0, k);
+		min = line.substring(0, k);
+		
+	
+		for(int i=1;i<line.length()-(k-1);i++){
+			
+			if(max.compareTo(line.substring(i, i+k))>0){
+				max = line.substring(i, i+k);
+			}
+			
+			if(min.compareTo(line.substring(i, i+k))<0){
+				min = line.substring(i, i+k);
+			}
+			
+		}//for
+		
+		System.out.println(max);
+		System.out.println(min);
+		
+		
+	}//main
+	
+	
+	
+	
+	
+
+}//Java_String_Compare
